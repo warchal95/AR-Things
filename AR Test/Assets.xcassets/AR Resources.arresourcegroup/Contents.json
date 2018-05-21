@@ -1,0 +1,20 @@
+{
+  "info" : {
+    "version" : 1,
+    "author" : "xcode"
+  },
+  "resources" : [
+    {
+      "filename" : "Alfa Romeo Giulia.arreferenceimage"
+    },
+    {
+      "filename" : "Landscape.arreferenceimage"
+    },
+    {
+      "filename" : "Mona Lisa - Leonardo da Vinci.arreferenceimage"
+    },
+    {
+      "filename" : "The Scream - Munch.arreferenceimage"
+    }
+  ]
+}
