@@ -15,6 +15,7 @@ final class ARImageDetectionViewController: ARViewController {
         static let monaLisa = "Mona Lisa - Leonardo da Vinci"
         static let theScream = "The Scream - Munch"
         static let landscape = "Landscape"
+        static let sceneName = "ObjectInfo"
     }
 
     override func runSession() {
@@ -70,17 +71,15 @@ extension ARImageDetectionViewController {
     
     private func generatePlaneNodeForAnchor(_ anchor: ARObjectAnchor) -> SCNPlane {
         let width = CGFloat(anchor.referenceObject.extent.x * 0.8)
-        let height = CGFloat(anchor.referenceObject.extent.y * 0.3)
-        
+        let height = CGFloat(anchor.referenceObject.extent.y * 0.25)
+
         let plane = SCNPlane(width: width, height: height)
+        let spriteKitScene = SKScene(fileNamed: Constants.sceneName)
+
         plane.cornerRadius = plane.width / 8.0
-        
-        let spriteKitScene = SKScene(fileNamed: "ProductInfo")
-        
         plane.firstMaterial?.diffuse.contents = spriteKitScene
         plane.firstMaterial?.isDoubleSided = true
         plane.firstMaterial?.diffuse.contentsTransform = SCNMatrix4Translate(SCNMatrix4MakeScale(1, -1, 1), 0, 1, 0)
-        
         return plane
     }
 }
