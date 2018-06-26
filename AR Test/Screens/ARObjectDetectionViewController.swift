@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  ARObjectDetectionViewController.swift
 //  AR Test
 //
 //  Copyright © 2018 Michał Warchał. All rights reserved.
@@ -8,7 +8,7 @@
 import ARKit
 import SceneKit
 
-final class ARImageDetectionViewController: ARViewController {
+final class ARObjectDetectionViewController: ARViewController {
     
     private struct Constants {
         static let car = "Alfa Romeo Giulia"
@@ -19,7 +19,7 @@ final class ARImageDetectionViewController: ARViewController {
     }
 
     override func runSession() {
-        sceneContainer.sceneView.session.run(ARImageDetectionConfiguration())
+        sceneContainer.sceneView.session.run(ARObjectDetectionConfiguration())
     }
 
     override func setupProperties() {
@@ -28,7 +28,7 @@ final class ARImageDetectionViewController: ARViewController {
 }
 
 // MARK: ARSCNViewDelegate
-extension ARImageDetectionViewController: ARSCNViewDelegate {
+extension ARObjectDetectionViewController: ARSCNViewDelegate {
     func renderer(_ renderer: SCNSceneRenderer, didAdd node: SCNNode, for anchor: ARAnchor) {
         if let objectAnchor = anchor as? ARObjectAnchor {
             let plane = generatePlaneNodeForAnchor(objectAnchor)
@@ -44,7 +44,7 @@ extension ARImageDetectionViewController: ARSCNViewDelegate {
     }
 }
 
-extension ARImageDetectionViewController {
+extension ARObjectDetectionViewController {
     private func detectNameFor(_ referenceImage: ARReferenceImage) -> String {
         switch referenceImage.name {
         case Constants.car: return "Car"

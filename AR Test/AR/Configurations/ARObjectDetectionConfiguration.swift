@@ -1,5 +1,5 @@
 //
-//  ARMainConfiguration.swift
+//  ARObjectDetectionConfiguration.swift
 //  AR Test
 //
 //  Copyright © 2018 Michał Warchał. All rights reserved.
@@ -7,7 +7,7 @@
 
 import ARKit
 
-final class ARImageDetectionConfiguration: ARWorldTrackingConfiguration {
+final class ARObjectDetectionConfiguration: ARWorldTrackingConfiguration {
 
     override init() {
         super.init()
