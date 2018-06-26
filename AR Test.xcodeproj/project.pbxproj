@@ -16,6 +16,7 @@
 		E8D67A5D20A9B4FE00A357E9 /* ARSceneContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8D67A5C20A9B4FE00A357E9 /* ARSceneContainerView.swift */; };
 		E8D67A6120A9B59200A357E9 /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8D67A6020A9B59200A357E9 /* BaseView.swift */; };
 		E8D67A6520A9E9AF00A357E9 /* IntExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8D67A6420A9E9AF00A357E9 /* IntExtensions.swift */; };
+		E8EEBD6D20E25E0300C5B5B3 /* ObjectInfo.sks in Resources */ = {isa = PBXBuildFile; fileRef = E8EEBD6C20E25E0300C5B5B3 /* ObjectInfo.sks */; };
 		E8F0DF8320A4844D007B01B8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8F0DF8220A4844D007B01B8 /* AppDelegate.swift */; };
 		E8F0DF8520A4844D007B01B8 /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = E8F0DF8420A4844D007B01B8 /* art.scnassets */; };
 		E8F0DF8720A4844D007B01B8 /* ARImageDetectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8F0DF8620A4844D007B01B8 /* ARImageDetectionViewController.swift */; };
@@ -33,6 +34,7 @@
 		E8D67A5C20A9B4FE00A357E9 /* ARSceneContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARSceneContainerView.swift; sourceTree = "<group>"; };
 		E8D67A6020A9B59200A357E9 /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
 		E8D67A6420A9E9AF00A357E9 /* IntExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntExtensions.swift; sourceTree = "<group>"; };
+		E8EEBD6C20E25E0300C5B5B3 /* ObjectInfo.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; name = ObjectInfo.sks; path = "AR Test/AR/Scenes/ObjectInfo.sks"; sourceTree = SOURCE_ROOT; };
 		E8F0DF7F20A4844D007B01B8 /* AR Test.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "AR Test.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E8F0DF8220A4844D007B01B8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E8F0DF8420A4844D007B01B8 /* art.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = art.scnassets; sourceTree = "<group>"; };
@@ -68,6 +70,7 @@
 		E83377E020A58E5A0063DC7B /* AR */ = {
 			isa = PBXGroup;
 			children = (
+				E8EEBD6B20E25DD400C5B5B3 /* Scenes */,
 				E850F74420A98DF300E26F2D /* Configurations */,
 			);
 			path = AR;
@@ -113,6 +116,15 @@
 				E8D67A6420A9E9AF00A357E9 /* IntExtensions.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		E8EEBD6B20E25DD400C5B5B3 /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				E8EEBD6C20E25E0300C5B5B3 /* ObjectInfo.sks */,
+			);
+			name = Scenes;
+			path = "New Group";
 			sourceTree = "<group>";
 		};
 		E8F0DF7620A4844D007B01B8 = {
@@ -208,6 +220,7 @@
 				E8F0DF8520A4844D007B01B8 /* art.scnassets in Resources */,
 				E8F0DF8F20A4844F007B01B8 /* LaunchScreen.storyboard in Resources */,
 				E8F0DF8C20A4844F007B01B8 /* Assets.xcassets in Resources */,
+				E8EEBD6D20E25E0300C5B5B3 /* ObjectInfo.sks in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -297,7 +310,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -351,7 +364,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
@@ -367,7 +380,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = SK8PDF7SG9;
 				INFOPLIST_FILE = "AR Test/Settings/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -386,7 +399,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = SK8PDF7SG9;
 				INFOPLIST_FILE = "AR Test/Settings/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

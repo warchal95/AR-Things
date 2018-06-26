@@ -18,11 +18,13 @@ final class ARImageDetectionConfiguration: ARWorldTrackingConfiguration {
     /// Method to setup configuration properties
     private func setupProperties() {
         isAutoFocusEnabled = true
-
-        guard let referenceImages = ARReferenceImage.referenceImages(inGroupNamed: "AR Resources", bundle: nil) else {
-            fatalError("Couldn't load AR Reference Images")
+        
+        guard let referenceImages = ARReferenceImage.referenceImages(inGroupNamed: "AR Resources", bundle: nil),
+            let referenceObjects = ARReferenceObject.referenceObjects(inGroupNamed: "Objects", bundle: nil)
+            else {
+                fatalError("Couldn't load AR Reference Images")
         }
-
         detectionImages = referenceImages
+        detectionObjects = referenceObjects
     }
 }

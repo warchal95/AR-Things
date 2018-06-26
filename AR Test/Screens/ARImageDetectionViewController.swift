@@ -29,13 +29,17 @@ final class ARImageDetectionViewController: ARViewController {
 // MARK: ARSCNViewDelegate
 extension ARImageDetectionViewController: ARSCNViewDelegate {
     func renderer(_ renderer: SCNSceneRenderer, didAdd node: SCNNode, for anchor: ARAnchor) {
-        guard let imageAnchor = anchor as? ARImageAnchor else { return }
-
-        let referenceImage = imageAnchor.referenceImage
-        let textNode = generateTextNode(for: referenceImage)
-
-        textNode.eulerAngles.x = -.pi / 2
-        node.addChildNode(textNode)
+        if let objectAnchor = anchor as? ARObjectAnchor {
+            let plane = generatePlaneNodeForAnchor(objectAnchor)
+            let planeNode = SCNNode(geometry: plane)
+            planeNode.position = SCNVector3Make(objectAnchor.referenceObject.center.x, objectAnchor.referenceObject.center.y + 0.5, objectAnchor.referenceObject.center.z)
+            node.addChildNode(planeNode)
+        } else if let imageAnchor = anchor as? ARImageAnchor {
+            let referenceImage = imageAnchor.referenceImage
+            let textNode = generateTextNodeForAnchor(referenceImage)
+            textNode.eulerAngles.x = -.pi / 2
+            node.addChildNode(textNode)
+        }
     }
 }
 
@@ -50,7 +54,7 @@ extension ARImageDetectionViewController {
         }
     }
     
-    private func generateTextNode(for referenceImage: ARReferenceImage) -> SCNNode {
+    private func generateTextNodeForAnchor(_ referenceImage: ARReferenceImage) -> SCNNode {
         let text = detectNameFor(referenceImage)
 
         let geoText = SCNText(string: text, extrusionDepth: 0.04)
@@ -62,5 +66,21 @@ extension ARImageDetectionViewController {
         textNode.pivot = SCNMatrix4MakeTranslation((maxVec.x - minVec.x) / 2 + minVec.x, (maxVec.y - minVec.y) / 2 + minVec.y, 0)
 
         return textNode
+    }
+    
+    private func generatePlaneNodeForAnchor(_ anchor: ARObjectAnchor) -> SCNPlane {
+        let width = CGFloat(anchor.referenceObject.extent.x * 0.8)
+        let height = CGFloat(anchor.referenceObject.extent.y * 0.3)
+        
+        let plane = SCNPlane(width: width, height: height)
+        plane.cornerRadius = plane.width / 8.0
+        
+        let spriteKitScene = SKScene(fileNamed: "ProductInfo")
+        
+        plane.firstMaterial?.diffuse.contents = spriteKitScene
+        plane.firstMaterial?.isDoubleSided = true
+        plane.firstMaterial?.diffuse.contentsTransform = SCNMatrix4Translate(SCNMatrix4MakeScale(1, -1, 1), 0, 1, 0)
+        
+        return plane
     }
 }
