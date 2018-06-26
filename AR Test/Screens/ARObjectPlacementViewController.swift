@@ -12,16 +12,36 @@ final class ARObjectPlacementViewController: ARViewController {
     
     private struct Constants {
         static let numberOfGeometries = 9
+        static let mapName = "WorldMapName"
+        static let fileURL: URL = {
+            guard let documentDirectory = try? FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false) else {
+                fatalError("Document Directory couldn't been fetched")
+            }
+            return documentDirectory.appendingPathComponent(Constants.mapName)
+        }()
     }
+    
+    private let configuration = ARSurfaceDetectionConfiguration()
     
     // MARK: - Variables
     private var geometryNumber: Int = 0
     
     // MARK: - Lifecicle methods
     override func runSession() {
-        sceneContainer.sceneView.session.run(ARSurfaceDetectionConfiguration())
+        if let worldMap = loadWorldMap() {
+            configuration.initialWorldMap = worldMap
+            sceneContainer.sceneView.session.run(configuration, options: [.resetTracking])
+        } else {
+            sceneContainer.sceneView.session.run(configuration)
+        }
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        saveWorldMap()
+    }
+
     /// Detect touch and create 3D object if hitTest has result
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         guard let touch = touches.first else { return }
@@ -47,6 +67,27 @@ final class ARObjectPlacementViewController: ARViewController {
         } else {
             addRotatingGeometry(geometry, in: position)
         }
+    }
+    
+    private func saveWorldMap() {
+        sceneContainer.sceneView.session.getCurrentWorldMap { worldMap, error in
+            guard let map = worldMap,
+                let mapData = try? NSKeyedArchiver.archivedData(withRootObject: map, requiringSecureCoding: true)
+            else {
+                return
+            }
+            try? mapData.write(to: Constants.fileURL)
+        }
+    }
+    
+    func loadWorldMap() -> ARWorldMap? {
+        guard let mapData = try? Data(contentsOf: Constants.fileURL),
+            let coding = try? NSKeyedUnarchiver.unarchivedObject(of: ARWorldMap.classForKeyedUnarchiver(), from: mapData),
+            let worldMap = coding as? ARWorldMap
+        else {
+            return nil
+        }
+        return worldMap
     }
 }
 
@@ -76,7 +117,7 @@ extension ARObjectPlacementViewController {
         node.geometry?.firstMaterial = material
         
         sceneContainer.sceneView.scene.rootNode.addChildNode(node)
-        
+
         if geometry is SCNPlane {
             return
         }
