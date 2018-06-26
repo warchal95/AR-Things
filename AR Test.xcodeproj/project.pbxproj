@@ -18,7 +18,6 @@
 		E8D67A6520A9E9AF00A357E9 /* IntExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8D67A6420A9E9AF00A357E9 /* IntExtensions.swift */; };
 		E8EEBD6D20E25E0300C5B5B3 /* ObjectInfo.sks in Resources */ = {isa = PBXBuildFile; fileRef = E8EEBD6C20E25E0300C5B5B3 /* ObjectInfo.sks */; };
 		E8F0DF8320A4844D007B01B8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8F0DF8220A4844D007B01B8 /* AppDelegate.swift */; };
-		E8F0DF8520A4844D007B01B8 /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = E8F0DF8420A4844D007B01B8 /* art.scnassets */; };
 		E8F0DF8720A4844D007B01B8 /* ARObjectDetectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8F0DF8620A4844D007B01B8 /* ARObjectDetectionViewController.swift */; };
 		E8F0DF8C20A4844F007B01B8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E8F0DF8B20A4844F007B01B8 /* Assets.xcassets */; };
 		E8F0DF8F20A4844F007B01B8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E8F0DF8D20A4844F007B01B8 /* LaunchScreen.storyboard */; };
@@ -37,7 +36,6 @@
 		E8EEBD6C20E25E0300C5B5B3 /* ObjectInfo.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; name = ObjectInfo.sks; path = "AR Test/AR/Scenes/ObjectInfo.sks"; sourceTree = SOURCE_ROOT; };
 		E8F0DF7F20A4844D007B01B8 /* AR Test.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "AR Test.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E8F0DF8220A4844D007B01B8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		E8F0DF8420A4844D007B01B8 /* art.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = art.scnassets; sourceTree = "<group>"; };
 		E8F0DF8620A4844D007B01B8 /* ARObjectDetectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARObjectDetectionViewController.swift; sourceTree = "<group>"; };
 		E8F0DF8B20A4844F007B01B8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E8F0DF8E20A4844F007B01B8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -151,7 +149,6 @@
 				E83377E020A58E5A0063DC7B /* AR */,
 				E83377DF20A58E530063DC7B /* Screens */,
 				E8D67A5B20A9B4B300A357E9 /* Views */,
-				E8F0DF8420A4844D007B01B8 /* art.scnassets */,
 				E8F0DF8B20A4844F007B01B8 /* Assets.xcassets */,
 				E8F0DF8D20A4844F007B01B8 /* LaunchScreen.storyboard */,
 			);
@@ -216,7 +213,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E8F0DF8520A4844D007B01B8 /* art.scnassets in Resources */,
 				E8F0DF8F20A4844F007B01B8 /* LaunchScreen.storyboard in Resources */,
 				E8F0DF8C20A4844F007B01B8 /* Assets.xcassets in Resources */,
 				E8EEBD6D20E25E0300C5B5B3 /* ObjectInfo.sks in Resources */,
