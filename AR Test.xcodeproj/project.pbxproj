@@ -8,10 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		E83377E220A58E750063DC7B /* ARObjectDetectionConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = E83377E120A58E750063DC7B /* ARObjectDetectionConfiguration.swift */; };
+		E836716C20E3BB9C00DA969B /* ObjectPlacementViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E836716B20E3BB9C00DA969B /* ObjectPlacementViewModel.swift */; };
 		E850F74620A98F9F00E26F2D /* ARSurfaceDetectionConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = E850F74520A98F9F00E26F2D /* ARSurfaceDetectionConfiguration.swift */; };
 		E895C0C720AAD5F9006E0E71 /* ARViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E895C0C620AAD5F9006E0E71 /* ARViewController.swift */; };
 		E895C0CD20AAE2F5006E0E71 /* ARObjectPlacementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E895C0CC20AAE2F5006E0E71 /* ARObjectPlacementViewController.swift */; };
 		E895C0CF20AAF183006E0E71 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E895C0CE20AAF183006E0E71 /* TabBarController.swift */; };
+		E8D1081220E394450053B824 /* P2PSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8D1081120E394450053B824 /* P2PSession.swift */; };
+		E8D1781920E3CCE9000AF9CF /* UIAlertControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8D1781820E3CCE9000AF9CF /* UIAlertControllerExtension.swift */; };
+		E8D1781B20E3D298000AF9CF /* SCNVector3Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8D1781A20E3D298000AF9CF /* SCNVector3Extension.swift */; };
 		E8D67A5920A9B35600A357E9 /* ARSurfaceDetectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8D67A5820A9B35500A357E9 /* ARSurfaceDetectionViewController.swift */; };
 		E8D67A5D20A9B4FE00A357E9 /* ARSceneContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8D67A5C20A9B4FE00A357E9 /* ARSceneContainerView.swift */; };
 		E8D67A6120A9B59200A357E9 /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8D67A6020A9B59200A357E9 /* BaseView.swift */; };
@@ -25,10 +29,14 @@
 
 /* Begin PBXFileReference section */
 		E83377E120A58E750063DC7B /* ARObjectDetectionConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARObjectDetectionConfiguration.swift; sourceTree = "<group>"; };
+		E836716B20E3BB9C00DA969B /* ObjectPlacementViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObjectPlacementViewModel.swift; sourceTree = "<group>"; };
 		E850F74520A98F9F00E26F2D /* ARSurfaceDetectionConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARSurfaceDetectionConfiguration.swift; sourceTree = "<group>"; };
 		E895C0C620AAD5F9006E0E71 /* ARViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARViewController.swift; sourceTree = "<group>"; };
 		E895C0CC20AAE2F5006E0E71 /* ARObjectPlacementViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARObjectPlacementViewController.swift; sourceTree = "<group>"; };
 		E895C0CE20AAF183006E0E71 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		E8D1081120E394450053B824 /* P2PSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = P2PSession.swift; sourceTree = "<group>"; };
+		E8D1781820E3CCE9000AF9CF /* UIAlertControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIAlertControllerExtension.swift; sourceTree = "<group>"; };
+		E8D1781A20E3D298000AF9CF /* SCNVector3Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SCNVector3Extension.swift; sourceTree = "<group>"; };
 		E8D67A5820A9B35500A357E9 /* ARSurfaceDetectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARSurfaceDetectionViewController.swift; sourceTree = "<group>"; };
 		E8D67A5C20A9B4FE00A357E9 /* ARSceneContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARSceneContainerView.swift; sourceTree = "<group>"; };
 		E8D67A6020A9B59200A357E9 /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
@@ -74,6 +82,14 @@
 			path = AR;
 			sourceTree = "<group>";
 		};
+		E836716A20E3BB7E00DA969B /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				E836716B20E3BB9C00DA969B /* ObjectPlacementViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
 		E850F74420A98DF300E26F2D /* Configurations */ = {
 			isa = PBXGroup;
 			children = (
@@ -81,6 +97,14 @@
 				E850F74520A98F9F00E26F2D /* ARSurfaceDetectionConfiguration.swift */,
 			);
 			path = Configurations;
+			sourceTree = "<group>";
+		};
+		E8D1081020E393D20053B824 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				E8D1081120E394450053B824 /* P2PSession.swift */,
+			);
+			path = Networking;
 			sourceTree = "<group>";
 		};
 		E8D67A5A20A9B37400A357E9 /* Abstract */ = {
@@ -112,6 +136,8 @@
 			isa = PBXGroup;
 			children = (
 				E8D67A6420A9E9AF00A357E9 /* IntExtensions.swift */,
+				E8D1781820E3CCE9000AF9CF /* UIAlertControllerExtension.swift */,
+				E8D1781A20E3D298000AF9CF /* SCNVector3Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -143,11 +169,13 @@
 		E8F0DF8120A4844D007B01B8 /* AR Test */ = {
 			isa = PBXGroup;
 			children = (
+				E8D1081020E393D20053B824 /* Networking */,
 				E8F0DF8220A4844D007B01B8 /* AppDelegate.swift */,
 				E8D67A6320A9E9A500A357E9 /* Extensions */,
 				E8D67A6220A9BC4F00A357E9 /* Settings */,
 				E83377E020A58E5A0063DC7B /* AR */,
 				E83377DF20A58E530063DC7B /* Screens */,
+				E836716A20E3BB7E00DA969B /* ViewModels */,
 				E8D67A5B20A9B4B300A357E9 /* Views */,
 				E8F0DF8B20A4844F007B01B8 /* Assets.xcassets */,
 				E8F0DF8D20A4844F007B01B8 /* LaunchScreen.storyboard */,
@@ -227,13 +255,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				E8D67A5920A9B35600A357E9 /* ARSurfaceDetectionViewController.swift in Sources */,
+				E836716C20E3BB9C00DA969B /* ObjectPlacementViewModel.swift in Sources */,
 				E8D67A6520A9E9AF00A357E9 /* IntExtensions.swift in Sources */,
 				E895C0CF20AAF183006E0E71 /* TabBarController.swift in Sources */,
 				E850F74620A98F9F00E26F2D /* ARSurfaceDetectionConfiguration.swift in Sources */,
 				E895C0C720AAD5F9006E0E71 /* ARViewController.swift in Sources */,
+				E8D1081220E394450053B824 /* P2PSession.swift in Sources */,
 				E8D67A5D20A9B4FE00A357E9 /* ARSceneContainerView.swift in Sources */,
 				E8F0DF8720A4844D007B01B8 /* ARObjectDetectionViewController.swift in Sources */,
 				E895C0CD20AAE2F5006E0E71 /* ARObjectPlacementViewController.swift in Sources */,
+				E8D1781B20E3D298000AF9CF /* SCNVector3Extension.swift in Sources */,
+				E8D1781920E3CCE9000AF9CF /* UIAlertControllerExtension.swift in Sources */,
 				E8D67A6120A9B59200A357E9 /* BaseView.swift in Sources */,
 				E83377E220A58E750063DC7B /* ARObjectDetectionConfiguration.swift in Sources */,
 				E8F0DF8320A4844D007B01B8 /* AppDelegate.swift in Sources */,

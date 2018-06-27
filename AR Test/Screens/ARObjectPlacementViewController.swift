@@ -5,41 +5,59 @@
 //  Copyright © 2018 Michał Warchał. All rights reserved.
 //
 
-import SceneKit
 import ARKit
+import MultipeerConnectivity
+import CoreBluetooth
 
 final class ARObjectPlacementViewController: ARViewController {
     
-    private struct Constants {
+    struct Constants {
         static let numberOfGeometries = 9
-        static let mapName = "WorldMapName"
-        static let fileURL: URL = {
-            guard let documentDirectory = try? FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false) else {
-                fatalError("Document Directory couldn't been fetched")
-            }
-            return documentDirectory.appendingPathComponent(Constants.mapName)
-        }()
     }
     
+    // MARK: - Properties
     private let configuration = ARSurfaceDetectionConfiguration()
-    
-    // MARK: - Variables
-    private var geometryNumber: Int = 0
+    private let viewModel = ObjectPlacementViewModel()
+    private let bluetoothManager = CBCentralManager()
+    private var geometryNumber: Int = 0 /// Current generated geometry
+    private var p2pSession: P2PSession?
+    private let numberOfGeometries = 9 /// Number of categories for 3D geometries
     
     // MARK: - Lifecicle methods
+    override func setupProperties() {
+        p2pSession = P2PSession(receivedDataHandler: receivedData)
+        sceneContainer.shareButton.isHidden = false
+    }
+    
+    override func setupCallbacks() {
+        sceneContainer.shareButton.addTarget(self, action: #selector(userDidTapOnShare), for: .touchUpInside)
+    }
+    
     override func runSession() {
-        if let worldMap = loadWorldMap() {
+        if let worldMap = viewModel.worldMap {
             configuration.initialWorldMap = worldMap
-            sceneContainer.sceneView.session.run(configuration, options: [.resetTracking])
+            sceneContainer.sceneView.session.run(configuration, options: [.resetTracking, .removeExistingAnchors])
         } else {
             sceneContainer.sceneView.session.run(configuration)
         }
     }
     
+    @objc func userDidTapOnShare() {
+        guard bluetoothManager.state == .poweredOn else {
+            present(UIAlertController.simple(title: "Please Turn Bluetooth On to share ARWorld"), animated: true)
+            return
+        }
+        guard let p2pSession = p2pSession, !p2pSession.connectedPeers.isEmpty else {
+            present(UIAlertController.simple(title: "There are no connected peers nearby"), animated: true)
+            return
+        }
+        viewModel.sendWorldMapToPeers(session: sceneContainer.sceneView.session, p2pSession: p2pSession)
+    }
+    
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         
-        saveWorldMap()
+        viewModel.saveWorldMapForSession(sceneContainer.sceneView.session)
     }
 
     /// Detect touch and create 3D object if hitTest has result
@@ -48,20 +66,18 @@ final class ARObjectPlacementViewController: ARViewController {
         
         let result = sceneContainer.sceneView.hitTest(touch.location(in: sceneContainer.sceneView), types: [ARHitTestResult.ResultType.featurePoint])
         guard let hitResult = result.last else { return }
-    
-        /// Column 3 is holding information about position
-        let x = hitResult.worldTransform.columns.3.x
-        let y = hitResult.worldTransform.columns.3.y
-        let z = hitResult.worldTransform.columns.3.z
         
-        let hitVector = SCNVector3Make(x, y, z)
+        let hitVector = SCNVector3.positionFromTransform(hitResult.worldTransform)
         create3DObjectInPosition(hitVector)
     }
-    
+}
+
+/// Geometry placement
+extension ARObjectPlacementViewController {
     /// Creates 3D object and place it in AR world
     private func create3DObjectInPosition(_ position: SCNVector3) {
         let geometry = generateGeometry()
-
+        
         if let text = geometry as? SCNText {
             addRotatingText(text, in: position)
         } else {
@@ -69,30 +85,6 @@ final class ARObjectPlacementViewController: ARViewController {
         }
     }
     
-    private func saveWorldMap() {
-        sceneContainer.sceneView.session.getCurrentWorldMap { worldMap, error in
-            guard let map = worldMap,
-                let mapData = try? NSKeyedArchiver.archivedData(withRootObject: map, requiringSecureCoding: true)
-            else {
-                return
-            }
-            try? mapData.write(to: Constants.fileURL)
-        }
-    }
-    
-    func loadWorldMap() -> ARWorldMap? {
-        guard let mapData = try? Data(contentsOf: Constants.fileURL),
-            let coding = try? NSKeyedUnarchiver.unarchivedObject(of: ARWorldMap.classForKeyedUnarchiver(), from: mapData),
-            let worldMap = coding as? ARWorldMap
-        else {
-            return nil
-        }
-        return worldMap
-    }
-}
-
-/// Geometry placement
-extension ARObjectPlacementViewController {
     private func addRotatingText(_ text: SCNText, in position: SCNVector3) {
         let textNode = SCNNode(geometry: text)
         textNode.position = position
@@ -121,7 +113,6 @@ extension ARObjectPlacementViewController {
         if geometry is SCNPlane {
             return
         }
-    
         let action = SCNAction.rotateBy(x: 0, y: CGFloat(2 * Double.pi), z: 0, duration: 10)
         let repeatedAction = SCNAction.repeatForever(action)
         node.runAction(repeatedAction, forKey: "ARTest.ARObjectPlacementViewController.rotation")
@@ -158,5 +149,22 @@ extension ARObjectPlacementViewController {
         text.font = UIFont (name: "Arial", size: 0.15)
         text.firstMaterial!.diffuse.contents = #colorLiteral(red: 0.01176470588, green: 0.8117647059, blue: 0.3450980392, alpha: 1)
         return text
+    }
+}
+
+/// P2PSession Receiver
+extension ARObjectPlacementViewController {
+    func receivedData(_ data: Data, from peer: MCPeerID) {
+        
+        if let unarchived = try? NSKeyedUnarchiver.unarchivedObject(of: ARWorldMap.classForKeyedArchiver()!, from: data), let worldMap = unarchived as? ARWorldMap {
+            // Run the session with the received world map.
+            let configuration = ARWorldTrackingConfiguration()
+            configuration.planeDetection = .horizontal
+            configuration.initialWorldMap = worldMap
+            sceneContainer.sceneView.session.run(configuration, options: [.resetTracking, .removeExistingAnchors])
+        }
+        else {
+            print("unknown data recieved from \(peer)")
+        }
     }
 }
