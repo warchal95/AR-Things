@@ -36,7 +36,7 @@ final class ARObjectPlacementViewController: ARViewController {
     override func runSession() {
         if let worldMap = viewModel.worldMap {
             configuration.initialWorldMap = worldMap
-            sceneContainer.sceneView.session.run(configuration, options: [.resetTracking, .removeExistingAnchors])
+            sceneContainer.sceneView.session.run(configuration)
         } else {
             sceneContainer.sceneView.session.run(configuration)
         }
@@ -155,16 +155,16 @@ extension ARObjectPlacementViewController {
 /// P2PSession Receiver
 extension ARObjectPlacementViewController {
     func receivedData(_ data: Data, from peer: MCPeerID) {
-        
-        if let unarchived = try? NSKeyedUnarchiver.unarchivedObject(of: ARWorldMap.classForKeyedArchiver()!, from: data), let worldMap = unarchived as? ARWorldMap {
-            // Run the session with the received world map.
-            let configuration = ARWorldTrackingConfiguration()
-            configuration.planeDetection = .horizontal
-            configuration.initialWorldMap = worldMap
-            sceneContainer.sceneView.session.run(configuration, options: [.resetTracking, .removeExistingAnchors])
-        }
+        guard let classForKeyedARchiver = ARWorldMap.classForKeyedArchiver(),
+            let unarchived = try? NSKeyedUnarchiver.unarchivedObject(of: classForKeyedARchiver, from: data),
+            let worldMap = unarchived as? ARWorldMap
         else {
-            print("unknown data recieved from \(peer)")
+            return
         }
+        // Run the session with the received world map.
+        let configuration = ARWorldTrackingConfiguration()
+        configuration.planeDetection = .horizontal
+        configuration.initialWorldMap = worldMap
+        sceneContainer.sceneView.session.run(configuration, options: [.resetTracking, .removeExistingAnchors])
     }
 }

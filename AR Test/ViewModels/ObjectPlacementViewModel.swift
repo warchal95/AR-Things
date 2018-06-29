@@ -21,8 +21,8 @@ final class ObjectPlacementViewModel {
         guard let mapData = try? Data(contentsOf: fileURL),
             let coding = try? NSKeyedUnarchiver.unarchivedObject(of: ARWorldMap.classForKeyedUnarchiver(), from: mapData),
             let worldMap = coding as? ARWorldMap
-            else {
-                return nil
+        else {
+            return nil
         }
         return worldMap
     }
