@@ -51,7 +51,7 @@ class ARViewController: UIViewController {
     }
     
     @objc func userDidTapClearButton() {
-        sceneContainer.sceneView.scene.rootNode.enumerateChildNodes { (node, _) -> Void in
+        sceneContainer.sceneView.scene.rootNode.enumerateChildNodes { node, _ in
             node.removeFromParentNode()
         }
     }

@@ -44,10 +44,21 @@ final class ARSceneContainerView: BaseView {
         return button
     }()
     
+    internal var shareButton: UIButton = {
+        let button = UIButton()
+        
+        button.layer.cornerRadius = 5.0
+        button.setTitle("Share", for: .normal)
+        button.setTitleColor(.blue, for: .normal)
+        button.backgroundColor = .white
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.isHidden = true
+        
+        return button
+    }()
+    
     override func setupLayout() {
-        addSubview(sceneView)
-        addSubview(clearButton)
-        addSubview(torchButton)
+        [sceneView, clearButton, torchButton, shareButton].forEach(addSubview)
 
         sceneView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor).isActive = true
         sceneView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor).isActive = true
@@ -63,5 +74,10 @@ final class ARSceneContainerView: BaseView {
         torchButton.rightAnchor.constraint(equalTo: rightAnchor, constant: -10.0).isActive = true
         torchButton.widthAnchor.constraint(equalToConstant: 70.0).isActive = true
         torchButton.heightAnchor.constraint(equalToConstant: 26.0).isActive = true
+        
+        shareButton.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 10.0).isActive = true
+        shareButton.leftAnchor.constraint(equalTo: leftAnchor, constant: 10.0).isActive = true
+        shareButton.widthAnchor.constraint(equalToConstant: 70.0).isActive = true
+        shareButton.heightAnchor.constraint(equalToConstant: 26.0).isActive = true
     }
 }
