@@ -2,9 +2,10 @@
 
 Welcome to the **AR Things** project. It's an application made for iOS with ARKit which tests basic functions of this framework.
 Feel free to test:
-- image and 3D object detection
+- 2D and 3D object detection
 - surface detection
 - 3D object placement
+- ARWorldMap sharing
 
 ### Tools & requirements
 
