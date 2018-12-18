@@ -9,7 +9,11 @@
 import ARKit
 
 extension SCNVector3 {
-    static func positionFromTransform(_ transform: matrix_float4x4) -> SCNVector3 {
-        return SCNVector3Make(transform.columns.3.x, transform.columns.3.y, transform.columns.3.z)
+    
+    /// Returns position from matrix transform
+    ///
+    /// - Parameter matrix: Matrix of floats
+    static func positionFromTransform(_ matrix: matrix_float4x4) -> SCNVector3 {
+        return SCNVector3Make(matrix.columns.3.x, matrix.columns.3.y, matrix.columns.3.z)
     }
 }

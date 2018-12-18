@@ -9,10 +9,10 @@ import UIKit
 
 public class BaseView: UIView {
     
+    /// - SeeAlso: UIView.init()
     init() {
         super.init(frame: .zero)
-        self.translatesAutoresizingMaskIntoConstraints = false
-        
+        translatesAutoresizingMaskIntoConstraints = false
         setupLayout()
     }
 
@@ -21,8 +21,8 @@ public class BaseView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
 
-    // MARK: Abstract
+    /// Abstract
     /// Sets up layout and subviews in `self`.
-    internal func setupLayout() { }
+    func setupLayout() { }
 }
 

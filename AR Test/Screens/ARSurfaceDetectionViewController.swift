@@ -10,27 +10,27 @@ import SceneKit
 
 final class ARSurfaceDetectionViewController: ARViewController {
     
+    /// - SeeAlso: ARViewController.runSession()
     override func runSession() {
         sceneContainer.sceneView.session.run(ARSurfaceDetectionConfiguration())
     }
     
+    /// - SeeAlso: ARViewController.setupProperties()
     override func setupProperties() {
         sceneContainer.sceneView.delegate = self
     }
 }
 
-// MARK: Node handlers
 extension ARSurfaceDetectionViewController {
+    
     private func createNodeForAnchor(_ anchor: ARPlaneAnchor, type: SurfaceType) -> SCNNode {
         let node = SCNNode()
-        
         node.name = type.name
         node.eulerAngles = SCNVector3(90.degreesToRadians, 0, 0)
         node.geometry = SCNPlane(width: CGFloat(anchor.extent.x), height: CGFloat(anchor.extent.z))
         node.geometry?.firstMaterial?.diffuse.contents = type == .horizontal ? #imageLiteral(resourceName: "Floor") : #imageLiteral(resourceName: "Wall")
         node.geometry?.firstMaterial?.isDoubleSided = true
         node.position = SCNVector3(anchor.center.x, anchor.center.y, anchor.center.z)
-        
         return node
     }
     
@@ -42,8 +42,9 @@ extension ARSurfaceDetectionViewController {
     }
 }
 
-// MARK: ARSCNViewDelegate
+/// - SeeAlso: ARSCNViewDelegate
 extension ARSurfaceDetectionViewController: ARSCNViewDelegate {
+    
     func renderer(_ renderer: SCNSceneRenderer, didAdd node: SCNNode, for anchor: ARAnchor) {
         guard let anchorPlane = anchor as? ARPlaneAnchor else { return }
 
@@ -68,17 +69,21 @@ extension ARSurfaceDetectionViewController: ARSCNViewDelegate {
     
     func renderer(_ renderer: SCNSceneRenderer, didRemove node: SCNNode, for anchor: ARAnchor) {
         guard let anchorPlane = anchor as? ARPlaneAnchor else { return }
-
         let type: SurfaceType = anchorPlane.alignment == ARPlaneAnchor.Alignment.horizontal ? .horizontal : .vertical
         removeNode(type: type)
     }
 }
 
 
-private enum SurfaceType {
+fileprivate enum SurfaceType {
+    
+    /// Case when surface is horizontal
     case horizontal
+    
+    /// Case when surface is vertical
     case vertical
     
+    /// Name based on surface type
     var name: String {
         switch self {
         case .horizontal: return "Floor"

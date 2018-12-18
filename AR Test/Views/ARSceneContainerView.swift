@@ -5,11 +5,12 @@
 //  Copyright © 2018 Michał Warchał. All rights reserved.
 //
 
-import ARKit
+import ARKit.ARSCNView
 
 final class ARSceneContainerView: BaseView {
 
-    internal var sceneView: ARSCNView = {
+    /// Main scene view
+    var sceneView: ARSCNView = {
         let sceneView = ARSCNView()
 
         sceneView.showsStatistics = true
@@ -20,7 +21,8 @@ final class ARSceneContainerView: BaseView {
         return sceneView
     }()
 
-    internal var clearButton: UIButton = {
+    /// Clear button
+    var clearButton: UIButton = {
         let button = UIButton()
 
         button.layer.cornerRadius = 5.0
@@ -32,7 +34,8 @@ final class ARSceneContainerView: BaseView {
         return button
     }()
     
-    internal var torchButton: UIButton = {
+    /// Torch button
+    var torchButton: UIButton = {
         let button = UIButton()
         
         button.layer.cornerRadius = 5.0
@@ -44,7 +47,8 @@ final class ARSceneContainerView: BaseView {
         return button
     }()
     
-    internal var shareButton: UIButton = {
+    /// Share button
+    var shareButton: UIButton = {
         let button = UIButton()
         
         button.layer.cornerRadius = 5.0
@@ -57,6 +61,7 @@ final class ARSceneContainerView: BaseView {
         return button
     }()
     
+    /// - SeeAlso: BaseView.setupLayout()
     override func setupLayout() {
         [sceneView, clearButton, torchButton, shareButton].forEach(addSubview)
 

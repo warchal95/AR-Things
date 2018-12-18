@@ -9,17 +9,17 @@ import ARKit
 
 final class ARObjectDetectionConfiguration: ARWorldTrackingConfiguration {
 
+    /// - SeeAlso: ARWorldTrackingConfiguration.init()
     override init() {
         super.init()
-
         setupProperties()
     }
 
     /// Method to setup configuration properties
     private func setupProperties() {
         isAutoFocusEnabled = true
-        
-        guard let referenceImages = ARReferenceImage.referenceImages(inGroupNamed: "AR Resources", bundle: nil),
+        guard
+            let referenceImages = ARReferenceImage.referenceImages(inGroupNamed: "AR Resources", bundle: nil),
             let referenceObjects = ARReferenceObject.referenceObjects(inGroupNamed: "AR Objects", bundle: nil)
         else {
             fatalError("Couldn't load AR resources")

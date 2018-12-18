@@ -9,16 +9,15 @@ import ARKit
 
 final class ARSurfaceDetectionConfiguration: ARWorldTrackingConfiguration {
     
+    /// - SeeAlso: ARWorldTrackingConfiguration.init()
     override init() {
         super.init()
-        
         setupProperties()
     }
     
     /// Method to setup configuration properties
     private func setupProperties() {
         isAutoFocusEnabled = true
-        
         planeDetection = [.horizontal, .vertical]
     }
 }

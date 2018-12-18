@@ -5,7 +5,7 @@
 //  Copyright © 2018 Michał Warchał. All rights reserved.
 //
 
-import UIKit
+import UIKit.UITabBarController
 
 final class TabBarController: UITabBarController {
 
