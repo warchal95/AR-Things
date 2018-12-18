@@ -41,8 +41,8 @@
 		E8D67A5C20A9B4FE00A357E9 /* ARSceneContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARSceneContainerView.swift; sourceTree = "<group>"; };
 		E8D67A6020A9B59200A357E9 /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
 		E8D67A6420A9E9AF00A357E9 /* IntExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntExtensions.swift; sourceTree = "<group>"; };
-		E8EEBD6C20E25E0300C5B5B3 /* ObjectInfo.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; name = ObjectInfo.sks; path = "AR Test/AR/Scenes/ObjectInfo.sks"; sourceTree = SOURCE_ROOT; };
-		E8F0DF7F20A4844D007B01B8 /* AR Test.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "AR Test.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		E8EEBD6C20E25E0300C5B5B3 /* ObjectInfo.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; name = ObjectInfo.sks; path = "AR Things/AR/Scenes/ObjectInfo.sks"; sourceTree = SOURCE_ROOT; };
+		E8F0DF7F20A4844D007B01B8 /* AR Things.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "AR Things.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E8F0DF8220A4844D007B01B8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E8F0DF8620A4844D007B01B8 /* ARObjectDetectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARObjectDetectionViewController.swift; sourceTree = "<group>"; };
 		E8F0DF8B20A4844F007B01B8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -65,10 +65,9 @@
 			isa = PBXGroup;
 			children = (
 				E8D67A5A20A9B37400A357E9 /* Abstract */,
-				E8D67A5820A9B35500A357E9 /* ARSurfaceDetectionViewController.swift */,
-				E8F0DF8620A4844D007B01B8 /* ARObjectDetectionViewController.swift */,
-				E895C0CC20AAE2F5006E0E71 /* ARObjectPlacementViewController.swift */,
-				E895C0CE20AAF183006E0E71 /* TabBarController.swift */,
+				E836716A20E3BB7E00DA969B /* ViewModels */,
+				E8D67A5B20A9B4B300A357E9 /* Views */,
+				E86C462021C95AB1004BCEA6 /* ViewControllers */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -99,12 +98,23 @@
 			path = Configurations;
 			sourceTree = "<group>";
 		};
-		E8D1081020E393D20053B824 /* Networking */ = {
+		E86C462021C95AB1004BCEA6 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				E8D67A5820A9B35500A357E9 /* ARSurfaceDetectionViewController.swift */,
+				E8F0DF8620A4844D007B01B8 /* ARObjectDetectionViewController.swift */,
+				E895C0CC20AAE2F5006E0E71 /* ARObjectPlacementViewController.swift */,
+				E895C0CE20AAF183006E0E71 /* TabBarController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		E8D1081020E393D20053B824 /* Connectivity */ = {
 			isa = PBXGroup;
 			children = (
 				E8D1081120E394450053B824 /* P2PSession.swift */,
 			);
-			path = Networking;
+			path = Connectivity;
 			sourceTree = "<group>";
 		};
 		E8D67A5A20A9B37400A357E9 /* Abstract */ = {
@@ -124,12 +134,14 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
-		E8D67A6220A9BC4F00A357E9 /* Settings */ = {
+		E8D67A6220A9BC4F00A357E9 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				E8F0DF8D20A4844F007B01B8 /* LaunchScreen.storyboard */,
+				E8F0DF8B20A4844F007B01B8 /* Assets.xcassets */,
 				E8F0DF9020A4844F007B01B8 /* Info.plist */,
 			);
-			path = Settings;
+			path = Resources;
 			sourceTree = "<group>";
 		};
 		E8D67A6320A9E9A500A357E9 /* Extensions */ = {
@@ -153,7 +165,7 @@
 		E8F0DF7620A4844D007B01B8 = {
 			isa = PBXGroup;
 			children = (
-				E8F0DF8120A4844D007B01B8 /* AR Test */,
+				E8F0DF8120A4844D007B01B8 /* AR Things */,
 				E8F0DF8020A4844D007B01B8 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -161,34 +173,30 @@
 		E8F0DF8020A4844D007B01B8 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				E8F0DF7F20A4844D007B01B8 /* AR Test.app */,
+				E8F0DF7F20A4844D007B01B8 /* AR Things.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		E8F0DF8120A4844D007B01B8 /* AR Test */ = {
+		E8F0DF8120A4844D007B01B8 /* AR Things */ = {
 			isa = PBXGroup;
 			children = (
-				E8D1081020E393D20053B824 /* Networking */,
-				E8F0DF8220A4844D007B01B8 /* AppDelegate.swift */,
-				E8D67A6320A9E9A500A357E9 /* Extensions */,
-				E8D67A6220A9BC4F00A357E9 /* Settings */,
 				E83377E020A58E5A0063DC7B /* AR */,
 				E83377DF20A58E530063DC7B /* Screens */,
-				E836716A20E3BB7E00DA969B /* ViewModels */,
-				E8D67A5B20A9B4B300A357E9 /* Views */,
-				E8F0DF8B20A4844F007B01B8 /* Assets.xcassets */,
-				E8F0DF8D20A4844F007B01B8 /* LaunchScreen.storyboard */,
+				E8D1081020E393D20053B824 /* Connectivity */,
+				E8F0DF8220A4844D007B01B8 /* AppDelegate.swift */,
+				E8D67A6320A9E9A500A357E9 /* Extensions */,
+				E8D67A6220A9BC4F00A357E9 /* Resources */,
 			);
-			path = "AR Test";
+			path = "AR Things";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		E8F0DF7E20A4844D007B01B8 /* AR Test */ = {
+		E8F0DF7E20A4844D007B01B8 /* AR Things */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = E8F0DF9320A4844F007B01B8 /* Build configuration list for PBXNativeTarget "AR Test" */;
+			buildConfigurationList = E8F0DF9320A4844F007B01B8 /* Build configuration list for PBXNativeTarget "AR Things" */;
 			buildPhases = (
 				E8F0DF7B20A4844D007B01B8 /* Sources */,
 				E8F0DF7C20A4844D007B01B8 /* Frameworks */,
@@ -198,9 +206,9 @@
 			);
 			dependencies = (
 			);
-			name = "AR Test";
+			name = "AR Things";
 			productName = "AR Test";
-			productReference = E8F0DF7F20A4844D007B01B8 /* AR Test.app */;
+			productReference = E8F0DF7F20A4844D007B01B8 /* AR Things.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -218,7 +226,7 @@
 					};
 				};
 			};
-			buildConfigurationList = E8F0DF7A20A4844D007B01B8 /* Build configuration list for PBXProject "AR Test" */;
+			buildConfigurationList = E8F0DF7A20A4844D007B01B8 /* Build configuration list for PBXProject "AR Things" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -231,7 +239,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				E8F0DF7E20A4844D007B01B8 /* AR Test */,
+				E8F0DF7E20A4844D007B01B8 /* AR Things */,
 			);
 		};
 /* End PBXProject section */
@@ -407,7 +415,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 9HJ69C5G9K;
-				INFOPLIST_FILE = "AR Test/Settings/Info.plist";
+				INFOPLIST_FILE = "AR Things/Resources/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -428,7 +436,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 9HJ69C5G9K;
-				INFOPLIST_FILE = "AR Test/Settings/Info.plist";
+				INFOPLIST_FILE = "AR Things/Resources/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -445,7 +453,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		E8F0DF7A20A4844D007B01B8 /* Build configuration list for PBXProject "AR Test" */ = {
+		E8F0DF7A20A4844D007B01B8 /* Build configuration list for PBXProject "AR Things" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				E8F0DF9120A4844F007B01B8 /* Debug */,
@@ -454,7 +462,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		E8F0DF9320A4844F007B01B8 /* Build configuration list for PBXNativeTarget "AR Test" */ = {
+		E8F0DF9320A4844F007B01B8 /* Build configuration list for PBXNativeTarget "AR Things" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				E8F0DF9420A4844F007B01B8 /* Debug */,
