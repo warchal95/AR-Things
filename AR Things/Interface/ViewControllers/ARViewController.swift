@@ -8,12 +8,18 @@
 import ARKit
 
 class ARViewController: UIViewController {
-    
-    /// Container with AR Scene view
+
+    /// Container view with AR Scene
     let sceneContainer = ARSceneContainerView()
+
+    /// - SeeAlso: UIViewController.prefersStatusBarHidden
+    override var prefersStatusBarHidden: Bool {
+        return true
+    }
     
     private var isTorchTurnedOn = false
     
+    /// - SeeAlso: UIViewController.viewDidLoad()
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
@@ -32,14 +38,20 @@ class ARViewController: UIViewController {
         sceneContainer.sceneView.session.pause()
     }
     
-    /// - SeeAlso: UIViewController.prefersStatusBarHidden
-    override var prefersStatusBarHidden: Bool {
-        return true
+    /// Sets up the properties of `self`. Called automatically on `viewDidLoad()`.
+    func setupProperties() { }
+    
+    /// Setup Callbacks. Can be overridden
+    func setupCallbacks() {
+        sceneContainer.clearButton.addTarget(self, action: #selector(userDidTapClearButton), for: .touchUpInside)
+        sceneContainer.torchButton.addTarget(self, action: #selector(toggleTorch), for: .touchUpInside)
     }
+    
+    /// Run session with concrete configuration
+    func runSession() { }
     
     private func setupView() {
         view.addSubview(sceneContainer)
-        
         NSLayoutConstraint.activate([
             sceneContainer.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             sceneContainer.rightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.rightAnchor),
@@ -62,16 +74,4 @@ class ARViewController: UIViewController {
         device.unlockForConfiguration()
         isTorchTurnedOn = !isTorchTurnedOn
     }
-    
-    /// Sets up the properties of `self`. Called automatically on `viewDidLoad()`.
-    func setupProperties() { }
-    
-    /// Setup Callbacks. Can be overridden
-    func setupCallbacks() {
-        sceneContainer.clearButton.addTarget(self, action: #selector(userDidTapClearButton), for: .touchUpInside)
-        sceneContainer.torchButton.addTarget(self, action: #selector(toggleTorch), for: .touchUpInside)
-    }
-    
-    /// Run session with concrete configuration
-    func runSession() { }
 }

@@ -14,12 +14,12 @@
 		E895C0CD20AAE2F5006E0E71 /* ARObjectPlacementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E895C0CC20AAE2F5006E0E71 /* ARObjectPlacementViewController.swift */; };
 		E895C0CF20AAF183006E0E71 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E895C0CE20AAF183006E0E71 /* TabBarController.swift */; };
 		E8D1081220E394450053B824 /* P2PSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8D1081120E394450053B824 /* P2PSession.swift */; };
-		E8D1781920E3CCE9000AF9CF /* UIAlertControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8D1781820E3CCE9000AF9CF /* UIAlertControllerExtension.swift */; };
-		E8D1781B20E3D298000AF9CF /* SCNVector3Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8D1781A20E3D298000AF9CF /* SCNVector3Extension.swift */; };
+		E8D1781920E3CCE9000AF9CF /* UIAlertController+Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8D1781820E3CCE9000AF9CF /* UIAlertController+Alert.swift */; };
+		E8D1781B20E3D298000AF9CF /* SCNVector3+Transform.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8D1781A20E3D298000AF9CF /* SCNVector3+Transform.swift */; };
 		E8D67A5920A9B35600A357E9 /* ARSurfaceDetectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8D67A5820A9B35500A357E9 /* ARSurfaceDetectionViewController.swift */; };
 		E8D67A5D20A9B4FE00A357E9 /* ARSceneContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8D67A5C20A9B4FE00A357E9 /* ARSceneContainerView.swift */; };
 		E8D67A6120A9B59200A357E9 /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8D67A6020A9B59200A357E9 /* BaseView.swift */; };
-		E8D67A6520A9E9AF00A357E9 /* IntExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8D67A6420A9E9AF00A357E9 /* IntExtensions.swift */; };
+		E8D67A6520A9E9AF00A357E9 /* Int+Degrees.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8D67A6420A9E9AF00A357E9 /* Int+Degrees.swift */; };
 		E8EEBD6D20E25E0300C5B5B3 /* ObjectInfo.sks in Resources */ = {isa = PBXBuildFile; fileRef = E8EEBD6C20E25E0300C5B5B3 /* ObjectInfo.sks */; };
 		E8F0DF8320A4844D007B01B8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8F0DF8220A4844D007B01B8 /* AppDelegate.swift */; };
 		E8F0DF8720A4844D007B01B8 /* ARObjectDetectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8F0DF8620A4844D007B01B8 /* ARObjectDetectionViewController.swift */; };
@@ -35,13 +35,13 @@
 		E895C0CC20AAE2F5006E0E71 /* ARObjectPlacementViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARObjectPlacementViewController.swift; sourceTree = "<group>"; };
 		E895C0CE20AAF183006E0E71 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		E8D1081120E394450053B824 /* P2PSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = P2PSession.swift; sourceTree = "<group>"; };
-		E8D1781820E3CCE9000AF9CF /* UIAlertControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIAlertControllerExtension.swift; sourceTree = "<group>"; };
-		E8D1781A20E3D298000AF9CF /* SCNVector3Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SCNVector3Extension.swift; sourceTree = "<group>"; };
+		E8D1781820E3CCE9000AF9CF /* UIAlertController+Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIAlertController+Alert.swift"; sourceTree = "<group>"; };
+		E8D1781A20E3D298000AF9CF /* SCNVector3+Transform.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SCNVector3+Transform.swift"; sourceTree = "<group>"; };
 		E8D67A5820A9B35500A357E9 /* ARSurfaceDetectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARSurfaceDetectionViewController.swift; sourceTree = "<group>"; };
 		E8D67A5C20A9B4FE00A357E9 /* ARSceneContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARSceneContainerView.swift; sourceTree = "<group>"; };
 		E8D67A6020A9B59200A357E9 /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
-		E8D67A6420A9E9AF00A357E9 /* IntExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntExtensions.swift; sourceTree = "<group>"; };
-		E8EEBD6C20E25E0300C5B5B3 /* ObjectInfo.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; name = ObjectInfo.sks; path = "AR Things/AR/Scenes/ObjectInfo.sks"; sourceTree = SOURCE_ROOT; };
+		E8D67A6420A9E9AF00A357E9 /* Int+Degrees.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+Degrees.swift"; sourceTree = "<group>"; };
+		E8EEBD6C20E25E0300C5B5B3 /* ObjectInfo.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; name = ObjectInfo.sks; path = "AR Things/ARResources/Scenes/ObjectInfo.sks"; sourceTree = SOURCE_ROOT; };
 		E8F0DF7F20A4844D007B01B8 /* AR Things.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "AR Things.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E8F0DF8220A4844D007B01B8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E8F0DF8620A4844D007B01B8 /* ARObjectDetectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARObjectDetectionViewController.swift; sourceTree = "<group>"; };
@@ -61,24 +61,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		E83377DF20A58E530063DC7B /* Screens */ = {
+		E83377DF20A58E530063DC7B /* Interface */ = {
 			isa = PBXGroup;
 			children = (
-				E8D67A5A20A9B37400A357E9 /* Abstract */,
 				E836716A20E3BB7E00DA969B /* ViewModels */,
 				E8D67A5B20A9B4B300A357E9 /* Views */,
 				E86C462021C95AB1004BCEA6 /* ViewControllers */,
 			);
-			path = Screens;
+			path = Interface;
 			sourceTree = "<group>";
 		};
-		E83377E020A58E5A0063DC7B /* AR */ = {
+		E83377E020A58E5A0063DC7B /* ARResources */ = {
 			isa = PBXGroup;
 			children = (
-				E8EEBD6B20E25DD400C5B5B3 /* Scenes */,
 				E850F74420A98DF300E26F2D /* Configurations */,
+				E8EEBD6B20E25DD400C5B5B3 /* Scenes */,
 			);
-			path = AR;
+			path = ARResources;
 			sourceTree = "<group>";
 		};
 		E836716A20E3BB7E00DA969B /* ViewModels */ = {
@@ -101,6 +100,7 @@
 		E86C462021C95AB1004BCEA6 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				E895C0C620AAD5F9006E0E71 /* ARViewController.swift */,
 				E8D67A5820A9B35500A357E9 /* ARSurfaceDetectionViewController.swift */,
 				E8F0DF8620A4844D007B01B8 /* ARObjectDetectionViewController.swift */,
 				E895C0CC20AAE2F5006E0E71 /* ARObjectPlacementViewController.swift */,
@@ -115,14 +115,6 @@
 				E8D1081120E394450053B824 /* P2PSession.swift */,
 			);
 			path = Connectivity;
-			sourceTree = "<group>";
-		};
-		E8D67A5A20A9B37400A357E9 /* Abstract */ = {
-			isa = PBXGroup;
-			children = (
-				E895C0C620AAD5F9006E0E71 /* ARViewController.swift */,
-			);
-			path = Abstract;
 			sourceTree = "<group>";
 		};
 		E8D67A5B20A9B4B300A357E9 /* Views */ = {
@@ -147,9 +139,9 @@
 		E8D67A6320A9E9A500A357E9 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				E8D67A6420A9E9AF00A357E9 /* IntExtensions.swift */,
-				E8D1781820E3CCE9000AF9CF /* UIAlertControllerExtension.swift */,
-				E8D1781A20E3D298000AF9CF /* SCNVector3Extension.swift */,
+				E8D67A6420A9E9AF00A357E9 /* Int+Degrees.swift */,
+				E8D1781820E3CCE9000AF9CF /* UIAlertController+Alert.swift */,
+				E8D1781A20E3D298000AF9CF /* SCNVector3+Transform.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -181,11 +173,11 @@
 		E8F0DF8120A4844D007B01B8 /* AR Things */ = {
 			isa = PBXGroup;
 			children = (
-				E83377E020A58E5A0063DC7B /* AR */,
-				E83377DF20A58E530063DC7B /* Screens */,
+				E83377E020A58E5A0063DC7B /* ARResources */,
 				E8D1081020E393D20053B824 /* Connectivity */,
-				E8F0DF8220A4844D007B01B8 /* AppDelegate.swift */,
+				E83377DF20A58E530063DC7B /* Interface */,
 				E8D67A6320A9E9A500A357E9 /* Extensions */,
+				E8F0DF8220A4844D007B01B8 /* AppDelegate.swift */,
 				E8D67A6220A9BC4F00A357E9 /* Resources */,
 			);
 			path = "AR Things";
@@ -264,7 +256,7 @@
 			files = (
 				E8D67A5920A9B35600A357E9 /* ARSurfaceDetectionViewController.swift in Sources */,
 				E836716C20E3BB9C00DA969B /* ObjectPlacementViewModel.swift in Sources */,
-				E8D67A6520A9E9AF00A357E9 /* IntExtensions.swift in Sources */,
+				E8D67A6520A9E9AF00A357E9 /* Int+Degrees.swift in Sources */,
 				E895C0CF20AAF183006E0E71 /* TabBarController.swift in Sources */,
 				E850F74620A98F9F00E26F2D /* ARSurfaceDetectionConfiguration.swift in Sources */,
 				E895C0C720AAD5F9006E0E71 /* ARViewController.swift in Sources */,
@@ -272,8 +264,8 @@
 				E8D67A5D20A9B4FE00A357E9 /* ARSceneContainerView.swift in Sources */,
 				E8F0DF8720A4844D007B01B8 /* ARObjectDetectionViewController.swift in Sources */,
 				E895C0CD20AAE2F5006E0E71 /* ARObjectPlacementViewController.swift in Sources */,
-				E8D1781B20E3D298000AF9CF /* SCNVector3Extension.swift in Sources */,
-				E8D1781920E3CCE9000AF9CF /* UIAlertControllerExtension.swift in Sources */,
+				E8D1781B20E3D298000AF9CF /* SCNVector3+Transform.swift in Sources */,
+				E8D1781920E3CCE9000AF9CF /* UIAlertController+Alert.swift in Sources */,
 				E8D67A6120A9B59200A357E9 /* BaseView.swift in Sources */,
 				E83377E220A58E750063DC7B /* ARObjectDetectionConfiguration.swift in Sources */,
 				E8F0DF8320A4844D007B01B8 /* AppDelegate.swift in Sources */,

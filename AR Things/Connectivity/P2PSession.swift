@@ -7,7 +7,7 @@ import MultipeerConnectivity
 
 final class P2PSession: NSObject {
     
-    struct Constants {
+    private struct Constants {
         static let serviceType = "ar-multi-sample"
         static let myPeerID = MCPeerID(displayName: UIDevice.current.name)
     }

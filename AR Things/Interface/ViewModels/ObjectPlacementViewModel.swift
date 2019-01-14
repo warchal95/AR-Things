@@ -7,16 +7,8 @@
 
 import ARKit
 
-final class ObjectPlacementViewModel {    
+final class ObjectPlacementViewModel {
 
-    /// THe url for world map file destination
-    private let fileURL: URL = {
-        guard let documentDirectory = try? FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false) else {
-            fatalError("Document Directory couldn't been fetched")
-        }
-        return documentDirectory.appendingPathComponent("WorldMapName")
-    }()
-    
     /// World map of Augumented reality
     var worldMap: ARWorldMap? {
         guard
@@ -28,7 +20,15 @@ final class ObjectPlacementViewModel {
         }
         return worldMap
     }
-    
+
+    /// THe url for world map file destination
+    private let fileURL: URL = {
+        guard let documentDirectory = try? FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false) else {
+            fatalError("Document Directory couldn't been fetched")
+        }
+        return documentDirectory.appendingPathComponent("WorldMapName")
+    }()
+
     /// Saves world map
     ///
     /// - Parameter session: Session that is used to extract world map
@@ -50,9 +50,6 @@ final class ObjectPlacementViewModel {
             p2pSession.send(data)
         }
     }
-}
-
-extension ObjectPlacementViewModel {
     
     private func worldMapDataForSession(_ session: ARSession, completion: @escaping (Data?) -> Void) {
         session.getCurrentWorldMap { worldMap, error in

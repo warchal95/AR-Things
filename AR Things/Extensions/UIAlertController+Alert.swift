@@ -1,5 +1,5 @@
 //
-//  UIAlertControllerExtension.swift
+//  UIAlertController+Alert.swift
 //  AR Test
 //
 //  Copyright © 2018 Michał Warchał. All rights reserved.

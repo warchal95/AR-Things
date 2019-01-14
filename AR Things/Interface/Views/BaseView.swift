@@ -5,7 +5,7 @@
 //  Copyright © 2018 Michał Warchał. All rights reserved.
 //
 
-import UIKit
+import UIKit.UIView
 
 public class BaseView: UIView {
     

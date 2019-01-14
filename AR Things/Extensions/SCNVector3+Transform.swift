@@ -1,5 +1,5 @@
 //
-//  SCNVector3Extension.swift
+//  SCNVector3+Transform.swift
 //  AR Test
 //
 //  Created by Michał Warchał on 27.06.2018.
