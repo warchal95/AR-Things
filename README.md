@@ -7,6 +7,8 @@ Feel free to test:
 - 3D object placement
 - ARWorldMap sharing
 
+![giphy](https://user-images.githubusercontent.com/17690403/51484758-a9a86580-1d9c-11e9-998e-2d6c488ebcb8.gif)
+
 ### Tools & requirements
 
 - Xcode 10.0 with iOS 12.0 SDK
